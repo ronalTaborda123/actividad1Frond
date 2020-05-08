@@ -1,0 +1,51 @@
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <script type="text/babel">
+        const root = document.getElementById("root"); const state = { name: "", productStatus: "" }; function App() { function handlerChange(event) { console.log(event); setState({ productStatus: event.target.value }); } return (
+        <div className="container">
+            <form>
+                <div className="form-group">
+                    <label>Name:</label>
+                    <input className="form-control" />
+                </div>
+
+                <div>
+                    <label>Description:</label>
+                    <input className="form-control" />
+                </div>
+
+                <div>
+                    <label>Base Price:</label>
+                    <input className="form-control" />
+                </div>
+
+                <div>
+                    <label>Tax Rate:</label>
+                    <input className="form-control" />
+                </div>
+
+                <div className="form-group">
+                    <label>State</label>
+                    <select className="form-control" onChange={handlerChange}>
+                <option value="">Seleccion</option>
+                <option value="BORRADOR">Borrador</option>
+                <option value="PUBLICADO">Publicado</option>
+              </select>
+                </div>
+
+                <div>
+                    <label>Inventory Quantity:</label>
+                    <input className="form-control" />
+                </div>
+
+                <p>Selecciono: {state.productStatus}</p>
+            </form>
+        </div>
+        ); } function setState(newState) { Object.assign(state, newState); renderApp(); } function renderApp() { ReactDOM.render(
+        <App />, root); } renderApp();
+    </script>
+</body>
